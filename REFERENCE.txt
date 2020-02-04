@@ -1,0 +1,17 @@
+
+reference open source library
+
+aspnet / Logging Microsoft.Extensions.Logging.Debug
+ https://github.com/aspnet/Logging
+
+aspnet / Scaffolding Microsoft.VisualStudio.Web.CodeGeneration.Design
+ https://github.com/aspnet/Scaffolding
+
+AutoMapper / AutoMapper.Extensions.Microsoft.DependencyInjection
+ https://github.com/AutoMapper/AutoMapper.Extensions.Microsoft.DependencyInjection
+
+StackExchange / Dapper
+ https://github.com/StackExchange/Dapper
+
+mysql / mysql-connector-net MySql.Data
+ https://github.com/mysql/mysql-connector-net
