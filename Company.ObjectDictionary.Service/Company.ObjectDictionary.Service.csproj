@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Company.ObjectDictionary.Entity\Company.ObjectDictionary.Entity.csproj" />
+    <ProjectReference Include="..\Company.ObjectDictionary.Repository.Interface\Company.ObjectDictionary.Repository.Interface.csproj" />
+    <ProjectReference Include="..\Company.ObjectDictionary.Service.Interface\Company.ObjectDictionary.Service.Interface.csproj" />
+    <ProjectReference Include="..\Company.ObjectDictionary.ViewModel\Company.ObjectDictionary.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+
+#ToDo (우선 순위)
+
+1. Command - insert, update, delete ( datetime 등)
+2. UI
+3. async
+4. authentication
+
+#Done
+
+- 아키텍처 수립
+- API 
+- Query 조회
+- object mapper 적용
