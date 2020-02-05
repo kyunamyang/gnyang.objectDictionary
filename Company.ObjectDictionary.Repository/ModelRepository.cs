@@ -9,14 +9,6 @@ namespace Company.ObjectDictionary.Repository
 {
     public class ModelRepository : RepositoryBase<Model>, IGenericCommandRepository<Model>, IGenericQueryRepository<Model>
     {
-        //public EntityRepository()
-        //{
-        //}
-
-        //public EntityRepository(IConfiguration config, ICrud<Model> db) : base(config, db)
-        //{
-
-        //}
         public ModelRepository(ICrud<Model> db) : base(db)
         {
 
@@ -27,9 +19,9 @@ namespace Company.ObjectDictionary.Repository
             return (Model)db.GetById(id);
         }
 
-        public void Create(Model e)
+        public void Create(Model m)
         {
-            db.Create(e);
+            db.Create(m);
         }
 
         public IEnumerable<Model> GetAll(IDictionary<string, string> conditions)
@@ -37,9 +29,9 @@ namespace Company.ObjectDictionary.Repository
             return (IEnumerable<Model>)db.GetAll(conditions);
         }
 
-        public void Update(Model e)
+        public void Update(Model m)
         {
-            db.Update(e);
+            db.Update(m);
         }
 
         public void Delete(Guid id)

@@ -9,8 +9,8 @@ namespace Company.ObjectDictionary.Web
         public AutoMapper()
         {
             CreateMap<Account, AccountViewModel>();
-            CreateMap<User, UserViewModel>();
-            CreateMap<Model, ModelViewModel>();
+            CreateMap<User, UserViewModel>().ReverseMap();
+            CreateMap<Model, ModelViewModel>().ReverseMap();
             CreateMap<Field, FieldViewModel>();
         }
     }

@@ -20,7 +20,7 @@ namespace Company.ObjectDictionary.Web.Controllers
         {
             this.service = service;
         }
-        // GET: api/Model
+
         [HttpGet]
         public IEnumerable<ModelViewModel> Get()
         {
@@ -29,25 +29,34 @@ namespace Company.ObjectDictionary.Web.Controllers
             return service.GetAll(conditions);
         }
 
-        // GET: api/Model/82928937-2279-4F8E-AF7B-5351E9580F71
         [HttpGet("{id}")]
         public ModelViewModel Get(Guid id)
         {
             return service.GetById(id);
         }
 
-        // POST: api/Model
         [HttpPost]
-        public void Post([FromBody] ModelViewModel entity)
+        public void Post([FromBody] ModelViewModel m)
         {
-            service.Create(entity);
+            if(m.Id == null)
+            {
+                m.Id = Guid.NewGuid().ToString();
+            }
+
+            // [TEMP] UserId 채우기
+            m.User = GetCurrentUser();
+
+            service.Create(m);
         }
 
         // PUT: api/Model/82928937-2279-4F8E-AF7B-5351E9580F71
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody] ModelViewModel entity)
+        public void Put(string id, [FromBody] ModelViewModel m)
         {
-            service.Update(entity);
+            // [TEMP] UserId 채우기
+            m.User = GetCurrentUser();
+
+            service.Update(m);
         }
 
         // DELETE: api/Model/82928937-2279-4F8E-AF7B-5351E9580F71
@@ -55,6 +64,15 @@ namespace Company.ObjectDictionary.Web.Controllers
         public void Delete(string id)
         {
             service.Delete(new Guid(id));
+        }
+
+        // [TEMP]
+        private UserViewModel GetCurrentUser()
+        {
+            var user = new UserViewModel();
+            user.Id = "302EFE24-DAA6-4C62-99D6-10DDFB4C1FB6";
+
+            return user;
         }
     }
 }

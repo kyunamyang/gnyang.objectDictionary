@@ -11,9 +11,9 @@ namespace Company.ObjectDictionary.Common
         //protected readonly IConfiguration config;
         protected readonly ICrud<T> db;
 
-        public RepositoryBase()
-        {
-        }
+        ////public RepositoryBase()
+        ////{
+        ////}
 
         public RepositoryBase(/*IConfiguration config,*/ ICrud<T> db)
         {

@@ -38,16 +38,16 @@ namespace Company.ObjectDictionary.Web.Controllers
 
         // POST: api/Field
         [HttpPost]
-        public void Post([FromBody] FieldViewModel entity)
+        public void Post([FromBody] FieldViewModel f)
         {
-            service.Create(entity);
+            service.Create(f);
         }
 
         // PUT: api/Field/82928937-2279-4F8E-AF7B-5351E9580F71
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody] FieldViewModel entity)
+        public void Put(string id, [FromBody] FieldViewModel f)
         {
-            service.Update(entity);
+            service.Update(f);
         }
 
         // DELETE: api/Field/82928937-2279-4F8E-AF7B-5351E9580F71

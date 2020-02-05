@@ -3,14 +3,14 @@ using System.Data;
 using System.Data.Common;
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
-using Dapper;
-using Company.ObjectDictionary.Common;
 using System.Text;
 using System.Reflection;
 using System.Linq;
 using System.ComponentModel;
+using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
+using Dapper;
+using Company.ObjectDictionary.Common;
 
 namespace Company.ObjectDictionary.Database
 {
@@ -64,7 +64,9 @@ namespace Company.ObjectDictionary.Database
 
             using (var db = new MySqlConnection(connectionString))
             {
-                db.Execute(sql);
+                t.Created = DateTime.Now;
+
+                db.Execute(sql, t);
             }
         }
 
@@ -74,7 +76,9 @@ namespace Company.ObjectDictionary.Database
 
             using (var db = new MySqlConnection(connectionString))
             {
-                db.Execute(sql);
+                t.Modified = DateTime.Now;
+
+                db.Execute(sql, t);
             }
         }
 
@@ -82,9 +86,13 @@ namespace Company.ObjectDictionary.Database
         {
             using (var db = new MySqlConnection(connectionString))
             {
-                var sql = string.Format("DELETE FROM @TableName WHERE Id = @Id", new { TableName = tableName, Id = id });
+                // 실제 삭제하지 않음
+                ////var sql = string.Format("DELETE FROM @TableName WHERE Id = @Id");
+                ////db.Execute(sql, new { TableName = tableName, Id = id });
+                // 삭제 플래그 처리
+                var sql = string.Format("UPDATE {0} SET IsDeleted = true, Modified = @Modified WHERE Id = @Id", tableName);
 
-                db.Execute(sql);
+                db.Execute(sql, new { Modified = DateTime.Now, Id = id.ToString() });
             }
         }
 
@@ -94,8 +102,8 @@ namespace Company.ObjectDictionary.Database
 
             insertQuery.Append("(");
 
-            var properties = GenerateListOfProperties(GetProperties);
-            properties.ForEach(prop => { insertQuery.Append($"[{prop}],"); });
+            var properties = GenerateListOfProperties(GetProperties, "ignoreInsert");
+            properties.ForEach(prop => { insertQuery.Append($"{prop},"); });
 
             insertQuery
                 .Remove(insertQuery.Length - 1, 1)
@@ -113,7 +121,7 @@ namespace Company.ObjectDictionary.Database
         private string GenerateUpdateQuery()
         {
             var updateQuery = new StringBuilder($"UPDATE {tableName} SET ");
-            var properties = GenerateListOfProperties(GetProperties);
+            var properties = GenerateListOfProperties(GetProperties, "ignoreUpdate");
 
             properties.ForEach(property =>
             {
@@ -131,11 +139,11 @@ namespace Company.ObjectDictionary.Database
 
         private IEnumerable<PropertyInfo> GetProperties => typeof(T).GetProperties();
 
-        private static List<string> GenerateListOfProperties(IEnumerable<PropertyInfo> listOfProperties)
+        private List<string> GenerateListOfProperties(IEnumerable<PropertyInfo> listOfProperties, string ignoreDescription)
         {
             return (from prop in listOfProperties
                     let attributes = prop.GetCustomAttributes(typeof(DescriptionAttribute), false)
-                    where attributes.Length <= 0 || (attributes[0] as DescriptionAttribute)?.Description != "ignore"
+                    where attributes.Length <= 0 || (attributes[0] as DescriptionAttribute)?.Description != ignoreDescription
                     select prop.Name).ToList();
         }
     }

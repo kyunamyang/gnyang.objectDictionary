@@ -19,9 +19,9 @@ namespace Company.ObjectDictionary.Repository
             return (Field)db.GetById(id);
         }
 
-        public void Create(Field m)
+        public void Create(Field f)
         {
-            db.Create(m);
+            db.Create(f);
         }
 
         public IEnumerable<Field> GetAll(IDictionary<string, string> conditions)
@@ -29,9 +29,9 @@ namespace Company.ObjectDictionary.Repository
             return (IEnumerable<Field>)db.GetAll(conditions);
         }
 
-        public void Update(Field m)
+        public void Update(Field f)
         {
-            db.Update(m);
+            db.Update(f);
         }
 
         public void Delete(Guid id)
