@@ -11,7 +11,7 @@ namespace Company.ObjectDictionary.Web
             CreateMap<Account, AccountViewModel>();
             CreateMap<User, UserViewModel>().ReverseMap();
             CreateMap<Model, ModelViewModel>().ReverseMap();
-            CreateMap<Field, FieldViewModel>();
+            CreateMap<Field, FieldViewModel>().ReverseMap();
         }
     }
 }

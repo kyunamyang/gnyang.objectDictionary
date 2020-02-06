@@ -33,17 +33,6 @@ namespace Company.ObjectDictionary.Service
             this.userQueryRepository = userQueryRepository;
         }
 
-        public void Create(ModelViewModel modelViewModel)
-        {
-            var model = mapper.Map<Model>(modelViewModel);
-            //using(TransactionScope scope = new TransactionScope())
-            //{
-            //    modelCommandRepository.Create(model);
-            //    scope.Complete();
-            //}
-            modelCommandRepository.Create(model);
-        }
-
         // 자식 개체까지 조회하여 리턴
         public ModelViewModel GetById(Guid id)
         {
@@ -71,10 +60,21 @@ namespace Company.ObjectDictionary.Service
             return mapper.Map<IEnumerable<ModelViewModel>>(models);
         }
 
+        public void Create(ModelViewModel modelViewModel)
+        {
+            var model = mapper.Map<Model>(modelViewModel);
+            //using(TransactionScope scope = new TransactionScope())
+            //{
+            //    modelCommandRepository.Create(model);
+            //    scope.Complete();
+            //}
+            modelCommandRepository.Create(model);
+        }
+
         public void Update(ModelViewModel modelViewModel)
         {
-            var m = mapper.Map<Model>(modelViewModel);
-            modelCommandRepository.Update(m);
+            var model = mapper.Map<Model>(modelViewModel);
+            modelCommandRepository.Update(model);
         }
 
         public void Delete(Guid id)

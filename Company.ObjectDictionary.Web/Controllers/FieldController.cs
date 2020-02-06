@@ -20,7 +20,7 @@ namespace Company.ObjectDictionary.Web.Controllers
         {
             this.service = service;
         }
-        // GET: api/Field
+
         [HttpGet]
         public IEnumerable<FieldViewModel> Get()
         {
@@ -29,32 +29,48 @@ namespace Company.ObjectDictionary.Web.Controllers
             return service.GetAll(conditions);
         }
 
-        // GET: api/Field/82928937-2279-4F8E-AF7B-5351E9580F71
         [HttpGet("{id}")]
         public FieldViewModel Get(Guid id)
         {
             return service.GetById(id);
         }
 
-        // POST: api/Field
         [HttpPost]
         public void Post([FromBody] FieldViewModel f)
         {
+            if (f.Id == null)
+            {
+                f.Id = Guid.NewGuid().ToString();
+            }
+
+            // [TEMP] UserId 채우기
+            f.User = GetCurrentUser();
+            
             service.Create(f);
         }
 
-        // PUT: api/Field/82928937-2279-4F8E-AF7B-5351E9580F71
         [HttpPut("{id}")]
         public void Put(string id, [FromBody] FieldViewModel f)
         {
+            // [TEMP] UserId 채우기
+            f.User = GetCurrentUser();
+
             service.Update(f);
         }
 
-        // DELETE: api/Field/82928937-2279-4F8E-AF7B-5351E9580F71
         [HttpDelete("{id}")]
         public void Delete(string id)
         {
             service.Delete(new Guid(id));
+        }
+
+        // [TEMP]
+        private UserViewModel GetCurrentUser()
+        {
+            var user = new UserViewModel();
+            user.Id = "302EFE24-DAA6-4C62-99D6-10DDFB4C1FB6";
+
+            return user;
         }
     }
 }

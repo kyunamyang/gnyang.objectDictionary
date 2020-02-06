@@ -37,6 +37,8 @@ namespace Company.ObjectDictionary.Web
             //
             services.AddAutoMapper(typeof(Startup));
             services.AddSingleton( _ => Configuration);
+
+            // 
             services.AddTransient(typeof(IGenericCommandRepository<Account>), typeof(AccountRepository));
             services.AddTransient(typeof(IGenericQueryRepository<Account>), typeof(AccountRepository));
             services.AddTransient(typeof(IGenericCommandRepository<User>), typeof(UserRepository));
@@ -48,7 +50,10 @@ namespace Company.ObjectDictionary.Web
             services.AddTransient(typeof(IGenericCommandRepository<Source>), typeof(SourceRepository));
             services.AddTransient(typeof(IGenericQueryRepository<Source>), typeof(SourceRepository));
 
+            //
             services.AddScoped(typeof(IGenericService<ModelViewModel>), typeof(ModelService));
+            services.AddScoped(typeof(IGenericService<FieldViewModel>), typeof(FieldService));
+
             services.AddTransient(typeof(ICrud<>), typeof(MariaDb<>));
         }
 

@@ -59,7 +59,6 @@ namespace Company.ObjectDictionary.Web.Controllers
             service.Update(m);
         }
 
-        // DELETE: api/Model/82928937-2279-4F8E-AF7B-5351E9580F71
         [HttpDelete("{id}")]
         public void Delete(string id)
         {
