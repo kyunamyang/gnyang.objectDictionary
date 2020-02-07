@@ -19,14 +19,14 @@ namespace Company.ObjectDictionary.Repository
             return (Account)db.GetById(id);
         }
 
-        public void Create(Account a)
-        {
-            db.Create(a);
-        }
-
         public IEnumerable<Account> GetAll(IDictionary<string, string> conditions)
         {
             return (IEnumerable<Account>)db.GetAll(conditions);
+        }
+
+        public void Create(Account a)
+        {
+            db.Create(a);
         }
 
         public void Update(Account a)

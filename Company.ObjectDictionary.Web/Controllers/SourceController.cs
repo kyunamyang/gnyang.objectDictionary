@@ -36,21 +36,41 @@ namespace Company.ObjectDictionary.Web.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] SourceViewModel entity)
+        public void Post([FromBody] SourceViewModel s)
         {
-            service.Create(entity);
+            if (s.Id == null)
+            {
+                s.Id = Guid.NewGuid().ToString();
+            }
+
+            // [TEMP] UserId 채우기
+            s.User = GetCurrentUser();
+
+            service.Create(s);
         }
 
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody] SourceViewModel entity)
+        public void Put(string id, [FromBody] SourceViewModel s)
         {
-            service.Update(entity);
+            // [TEMP] UserId 채우기
+            s.User = GetCurrentUser();
+
+            service.Update(s);
         }
 
         [HttpDelete("{id}")]
         public void Delete(string id)
         {
             service.Delete(new Guid(id));
+        }
+
+        // [TEMP]
+        private UserViewModel GetCurrentUser()
+        {
+            var user = new UserViewModel();
+            user.Id = "302EFE24-DAA6-4C62-99D6-10DDFB4C1FB6";
+
+            return user;
         }
     }
 }

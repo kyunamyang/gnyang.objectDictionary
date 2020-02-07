@@ -9,5 +9,6 @@ namespace Company.ObjectDictionary.ViewModel
         public string Name { get; set; }
         public string Path { get; set; }
         public UserViewModel User { get; set; }
+        public ModelViewModel Model { get; set; }
     }
 }
