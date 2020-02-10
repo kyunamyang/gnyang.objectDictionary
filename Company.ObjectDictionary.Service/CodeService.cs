@@ -7,10 +7,8 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Company.ObjectDictionary.Common;
-using Company.ObjectDictionary.Entity;
 using Company.ObjectDictionary.ViewModel;
 using Company.ObjectDictionary.Service.Interface;
-using Company.ObjectDictionary.Repository.Interface;
 
 namespace Company.ObjectDictionary.Service
 {

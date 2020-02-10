@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Linq;
+using System.Transactions;
 using AutoMapper;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Company.ObjectDictionary.Common;
 using Company.ObjectDictionary.Entity;
 using Company.ObjectDictionary.ViewModel;
 using Company.ObjectDictionary.Service.Interface;
 using Company.ObjectDictionary.Repository.Interface;
-using System.Transactions;
 
 namespace Company.ObjectDictionary.Service
 {
-    public class ModelService : ServiceBase, IGenericService<ModelViewModel>
+    public class ModelService : ServiceBase, IGenericService<ModelViewModel>, ICodeService<ModelViewModel>
     {
         private readonly IMapper mapper;
         private readonly IGenericCommandRepository<Model> modelCommandRepository;
@@ -80,6 +83,30 @@ namespace Company.ObjectDictionary.Service
         public void Delete(Guid id)
         {
             modelCommandRepository.Delete(id);
+        }
+
+        public string GetClassDefinition(ModelViewModel m)
+        {
+            var classDeclaration = SyntaxFactory.ClassDeclaration(m.Name)
+                .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword));
+
+            var propertyDeclarations = new List<MemberDeclarationSyntax>();
+
+            foreach (var p in m.Fields)
+            {
+                var propertyDeclaration = SyntaxFactory.PropertyDeclaration(SyntaxFactory.ParseTypeName(p.Type), p.Name)
+                    .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword))
+                    .AddAccessorListAccessors(SyntaxFactory.AccessorDeclaration(SyntaxKind.GetAccessorDeclaration).WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)))
+                    .AddAccessorListAccessors(SyntaxFactory.AccessorDeclaration(SyntaxKind.SetAccessorDeclaration).WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)));
+
+                propertyDeclarations.Add(propertyDeclaration);
+            }
+
+            classDeclaration = classDeclaration.AddMembers(propertyDeclarations.ToArray());
+
+            return classDeclaration.NormalizeWhitespace()
+                .ToFullString();
+
         }
     }
 }

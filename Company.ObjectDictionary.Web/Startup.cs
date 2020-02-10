@@ -54,7 +54,7 @@ namespace Company.ObjectDictionary.Web
             services.AddScoped(typeof(IGenericService<ModelViewModel>), typeof(ModelService));
             services.AddScoped(typeof(IGenericService<FieldViewModel>), typeof(FieldService));
             services.AddScoped(typeof(IGenericService<SourceViewModel>), typeof(SourceService));
-            services.AddScoped(typeof(ICodeService<ModelViewModel>), typeof(CodeService));
+            //services.AddScoped(typeof(ICodeService<ModelViewModel>), typeof(CodeService));
 
             services.AddTransient(typeof(ICrud<>), typeof(MariaDb<>));
         }
