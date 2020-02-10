@@ -15,3 +15,7 @@ StackExchange / Dapper
 
 mysql / mysql-connector-net MySql.Data
  https://github.com/mysql/mysql-connector-net
+
+Microsoft.CodeAnalysis.CSharp
+Microsoft.VisualStudio.Web.CodeGeneration.Design
+Moq
