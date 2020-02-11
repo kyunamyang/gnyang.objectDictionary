@@ -13,6 +13,8 @@ namespace Company.ObjectDictionary.Web
             CreateMap<Model, ModelViewModel>().ReverseMap();
             CreateMap<Field, FieldViewModel>().ReverseMap();
             CreateMap<Source, SourceViewModel>().ReverseMap();
+
+            //CreateMap<ModelViewModel, CodeViewModel>().ReverseMap();
         }
     }
 }

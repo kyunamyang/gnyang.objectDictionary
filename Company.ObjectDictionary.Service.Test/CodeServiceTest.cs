@@ -14,19 +14,16 @@ namespace Company.ObjectDictionary.Service.Test
         public void GetClassDefinition_ReturnString_Test()
         {
             // arrange
-            var m = new ModelViewModel
-            {
-                Id = "",
+            var m = new CodeViewModel {
                 Name = "Sample",
-                Description = string.Empty,
-                User = null,
                 Fields = new List<FieldViewModel>
                 {
                     new FieldViewModel{ Type = "int", Name = "Age" },
                 }
             };
-            var mockService = new Mock<ICodeService<ModelViewModel>>();
+            var mockService = new Mock<ICodeService<CodeViewModel>>();
             CodeService service = new CodeService(mockService.Object);
+            //CodeService service = new CodeService();
 
             // act
             var actual = service.GetClassDefinition(m);
@@ -42,18 +39,16 @@ namespace Company.ObjectDictionary.Service.Test
         {
             // arrange
             var expected = "public class Sample { public int Age { get; set; } }";
-            var m = new ModelViewModel{
-                Id = "",
+            var m = new CodeViewModel {
                 Name = "Sample",
-                Description = string.Empty,
-                User = null,
                 Fields = new List<FieldViewModel>
                 {
                     new FieldViewModel{ Type = "int", Name = "Age" },
                 }
             };
-            var mockService = new Mock<ICodeService<ModelViewModel>>();
-            CodeService service = new CodeService(mockService.Object);
+            //var mockService = new Mock<ICodeService<CodeViewModel>>();
+            //CodeService service = new CodeService(mockService.Object);
+            CodeService service = new CodeService();
 
             // act
             var actual = service.GetClassDefinition(m);
@@ -68,12 +63,8 @@ namespace Company.ObjectDictionary.Service.Test
         {
             // arrange
             var expected = "public class Sample { public int Age { get; set; } public string Name { get; set; } public string Phone { get; set; } }";
-            var m = new ModelViewModel
-            {
-                Id = "",
+            var m = new CodeViewModel {
                 Name = "Sample",
-                Description = string.Empty,
-                User = null,
                 Fields = new List<FieldViewModel>
                 {
                     new FieldViewModel{ Type = "int", Name = "Age" },
@@ -81,8 +72,9 @@ namespace Company.ObjectDictionary.Service.Test
                     new FieldViewModel{ Type = "string", Name = "Phone" }
                 }
             };
-            var mockService = new Mock<ICodeService<ModelViewModel>>();
-            CodeService service = new CodeService(mockService.Object);
+            //var mockService = new Mock<ICodeService<CodeViewModel>>();
+            //CodeService service = new CodeService(mockService.Object);
+            CodeService service = new CodeService();
 
             // act
             var actual = service.GetClassDefinition(m);

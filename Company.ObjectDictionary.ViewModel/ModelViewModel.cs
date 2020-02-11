@@ -11,5 +11,6 @@ namespace Company.ObjectDictionary.ViewModel
         public UserViewModel User { get; set; }
         public List<FieldViewModel> Fields { get; set; }
         public List<SourceViewModel> Sources { get; set; }
+        public CodeViewModel Code { get; set; }
     }
 }

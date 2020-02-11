@@ -2,26 +2,21 @@
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 using System.Linq;
+using System.Transactions;
 using AutoMapper;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Company.ObjectDictionary.Common;
+using Company.ObjectDictionary.Entity;
 using Company.ObjectDictionary.ViewModel;
 using Company.ObjectDictionary.Service.Interface;
 
 namespace Company.ObjectDictionary.Service
 {
-    public class CodeService : ServiceBase, ICodeService<ModelViewModel>
+    public class CodeService : ServiceBase, ICodeService<CodeViewModel>
     {
-        private readonly ICodeService<ModelViewModel> generateCodeService;
-
-        public CodeService(ICodeService<ModelViewModel> generateCodeService)
-        {
-            this.generateCodeService = generateCodeService;
-        }
-
-        public string GetClassDefinition(ModelViewModel m)
+        public string GetClassDefinition(CodeViewModel m)
         {
             var classDeclaration = SyntaxFactory.ClassDeclaration(m.Name)
                 .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword));
@@ -39,10 +34,9 @@ namespace Company.ObjectDictionary.Service
             }
 
             classDeclaration = classDeclaration.AddMembers(propertyDeclarations.ToArray());
-            
+
             return classDeclaration.NormalizeWhitespace()
                 .ToFullString();
-
         }
     }
 }

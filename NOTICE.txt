@@ -19,3 +19,4 @@ mysql / mysql-connector-net MySql.Data
 Microsoft.CodeAnalysis.CSharp
 Microsoft.VisualStudio.Web.CodeGeneration.Design
 Moq
+Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation

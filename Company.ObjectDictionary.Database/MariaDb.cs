@@ -53,6 +53,12 @@ namespace Company.ObjectDictionary.Database
             using (var db = new MySqlConnection(connectionString))
             {
                 var sql = string.Format("SELECT * FROM {0}", tableName); // 파라미터 값 추가해야
+                string and = GetWhereCondition(conditions);
+
+                if(!string.IsNullOrEmpty(and))
+                {
+                    sql = sql + " WHERE " + and;
+                }
 
                 return db.Query<T>(sql);
             }
@@ -94,6 +100,34 @@ namespace Company.ObjectDictionary.Database
 
                 db.Execute(sql, new { Modified = DateTime.Now, Id = id.ToString() });
             }
+        }
+
+        private string GetWhereCondition(IDictionary<string, string> conditions)
+        {
+            string result = string.Empty;
+
+            if(conditions.Count == 0)
+            {
+                return result;
+            }
+            //var pair = conditions.Select((key, val) => string.Format("{0} = {1}", key, val)).ToList();
+            //result = string.Join(" AND ", pair);
+            string and = string.Empty;
+            foreach( KeyValuePair<string, string> pair in conditions)
+            {
+                if (Int32.TryParse(pair.Value, out int temp))
+                {
+                    and = string.Format(" {0} = {1} AND", pair.Key, pair.Value);
+                }
+                else
+                {
+                    and = string.Format(" {0} = '{1}' AND", pair.Key, pair.Value);
+                }
+            }
+
+            and = and.TrimEnd("AND".ToCharArray());
+
+            return result + and;
         }
 
         private string GenerateInsertQuery()

@@ -22,9 +22,14 @@ namespace Company.ObjectDictionary.Web.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<ModelViewModel> Get()
+        public IEnumerable<ModelViewModel> Get(string startChar)
         {
             var conditions = new ConcurrentDictionary<string, string>();
+
+            if(!string.IsNullOrEmpty(startChar))
+            {
+                conditions.TryAdd("StartChar", startChar);
+            }
 
             return service.GetAll(conditions);
         }

@@ -33,7 +33,7 @@ namespace Company.ObjectDictionary.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             //
             services.AddAutoMapper(typeof(Startup));
             services.AddSingleton( _ => Configuration);
@@ -50,11 +50,14 @@ namespace Company.ObjectDictionary.Web
             services.AddTransient(typeof(IGenericCommandRepository<Source>), typeof(SourceRepository));
             services.AddTransient(typeof(IGenericQueryRepository<Source>), typeof(SourceRepository));
 
+
+            services.AddTransient(typeof(ICodeService<CodeViewModel>), typeof(CodeService));
+
             //
             services.AddScoped(typeof(IGenericService<ModelViewModel>), typeof(ModelService));
             services.AddScoped(typeof(IGenericService<FieldViewModel>), typeof(FieldService));
             services.AddScoped(typeof(IGenericService<SourceViewModel>), typeof(SourceService));
-            //services.AddScoped(typeof(ICodeService<ModelViewModel>), typeof(CodeService));
+            
 
             services.AddTransient(typeof(ICrud<>), typeof(MariaDb<>));
         }
