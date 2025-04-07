@@ -1,5 +1,5 @@
-# Company.ObjectDictionary
-Company.ObjectDictionary
+# gnyang.objectDictionary
+gnyang.objectDictionary
 
 
 # Version

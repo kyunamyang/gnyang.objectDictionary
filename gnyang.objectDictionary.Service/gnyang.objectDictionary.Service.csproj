@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gnyang.objectDictionary.Entity\gnyang.objectDictionary.Entity.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Repository.Interface\gnyang.objectDictionary.Repository.Interface.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Service.Interface\gnyang.objectDictionary.Service.Interface.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.ViewModel\gnyang.objectDictionary.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>

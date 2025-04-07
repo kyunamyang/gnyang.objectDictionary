@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	<PreserveCompilationContext>true</PreserveCompilationContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gnyang.objectDictionary.Common\gnyang.objectDictionary.Common.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Database\gnyang.objectDictionary.Database.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Entity\gnyang.objectDictionary.Entity.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Repository.Interface\gnyang.objectDictionary.Repository.Interface.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Repository\gnyang.objectDictionary.Repository.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Service.Interface\gnyang.objectDictionary.Service.Interface.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Service\gnyang.objectDictionary.Service.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.ViewModel\gnyang.objectDictionary.ViewModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Provision\" />
+  </ItemGroup>
+
+
+
+</Project>

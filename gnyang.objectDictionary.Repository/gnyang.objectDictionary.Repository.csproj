@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gnyang.objectDictionary.Entity\gnyang.objectDictionary.Entity.csproj" />
+    <ProjectReference Include="..\gnyang.objectDictionary.Repository.Interface\gnyang.objectDictionary.Repository.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,239 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+			"name": "gnyang.objectDictionary",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"42aae770-0eea-4c4c-bf7a-738c5855790a",
+				"2c19e332-fb32-414e-b2e5-c75614c74062",
+				"616500e4-d65a-4ef6-89b1-74705cff5680",
+				"95470fb4-5726-41c2-bb62-558e41aa2bd2",
+				"d584536d-e9df-493a-a321-e3ad8dd8ce40",
+				"ecea3351-8fcf-444f-8f56-e3daa829c0d3",
+				"e06fc22a-e493-4f63-a5be-d24b32f3d54f",
+				"1c4511b7-c183-4d5c-9cd7-740e4b11771a"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"folders": [],
+			"requests": [
+				{
+					"id": "1c4511b7-c183-4d5c-9cd7-740e4b11771a",
+					"name": "https://localhost:44337/api/field/eb408683-c863-429c-86fa-802db2a16e5a",
+					"url": "https://localhost:44337/api/field/eb408683-c863-429c-86fa-802db2a16e5a",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+					"pathVariables": {}
+				},
+				{
+					"id": "2c19e332-fb32-414e-b2e5-c75614c74062",
+					"name": "https://localhost:44337/api/model",
+					"url": "https://localhost:44337/api/model",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+					"pathVariables": {}
+				},
+				{
+					"id": "42aae770-0eea-4c4c-bf7a-738c5855790a",
+					"name": "https://localhost:44337/api/field/3F9E986E-54C4-471A-B1D7-ADA353EEFB76",
+					"url": "https://localhost:44337/api/field/3F9E986E-54C4-471A-B1D7-ADA353EEFB76",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+					"pathVariables": {}
+				},
+				{
+					"id": "616500e4-d65a-4ef6-89b1-74705cff5680",
+					"name": "https://localhost:44337/api/model",
+					"url": "https://localhost:44337/api/model",
+					"description": "",
+					"data": [],
+					"dataOptions": null,
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+					"rawModeData": "{\r\n    \"name\": \"엔티티A\",\r\n    \"description\": \"엔티티A설명입니다\",\r\n    \"user\": null,\r\n    \"fields\": null,\r\n    \"sources\": null\r\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "95470fb4-5726-41c2-bb62-558e41aa2bd2",
+					"name": "https://localhost:44337/api/model/B8962F00-AEE8-418E-8AE4-B5F52EC9052F",
+					"url": "https://localhost:44337/api/model/B8962F00-AEE8-418E-8AE4-B5F52EC9052F",
+					"description": "",
+					"data": [],
+					"dataOptions": null,
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "PUT",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+					"rawModeData": "{\r\n\t\"id\": \"B8962F00-AEE8-418E-8AE4-B5F52EC9052F\",\r\n    \"name\": \"엔티티0\",\r\n    \"description\": \"엔티티0설명입니다\",\r\n    \"user\": null,\r\n    \"fields\": null,\r\n    \"sources\": null\r\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "d584536d-e9df-493a-a321-e3ad8dd8ce40",
+					"name": "https://localhost:44337/api/model/B8962F00-AEE8-418E-8AE4-B5F52EC9052F",
+					"url": "https://localhost:44337/api/model/B8962F00-AEE8-418E-8AE4-B5F52EC9052F",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": null,
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+					"pathVariables": {}
+				},
+				{
+					"id": "e06fc22a-e493-4f63-a5be-d24b32f3d54f",
+					"name": "https://localhost:44337/api/field/eb408683-c863-429c-86fa-802db2a16e5a",
+					"url": "https://localhost:44337/api/field/eb408683-c863-429c-86fa-802db2a16e5a",
+					"description": "",
+					"data": [],
+					"dataOptions": null,
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "PUT",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+					"rawModeData": "{\r\n\t\"id\": \"eb408683-c863-429c-86fa-802db2a16e5a\",\r\n    \"name\": \"속성2.\",\r\n    \"description\": \"속성2설명입니다.\",\r\n    \"user\": null,\r\n    \"model\": {\r\n    \t\"id\": \"B8962F00-AEE8-418E-8AE4-B5F52EC9052F\"\r\n    }\r\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "ecea3351-8fcf-444f-8f56-e3daa829c0d3",
+					"name": "https://localhost:44337/api/field",
+					"url": "https://localhost:44337/api/field",
+					"description": "",
+					"data": [],
+					"dataOptions": null,
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "99fb8652-1aa6-4d5b-9a27-20c87ea2fc2a",
+					"rawModeData": "{\r\n    \"name\": \"속성2\",\r\n    \"description\": \"속성2설명입니다\",\r\n    \"user\": null,\r\n    \"model\": {\r\n    \t\"id\": \"B8962F00-AEE8-418E-8AE4-B5F52EC9052F\"\r\n    }\r\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "251adc0b-9b18-4d75-9dfd-e02e19be8481",
+			"name": "My Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
